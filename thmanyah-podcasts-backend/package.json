@@ -1,0 +1,41 @@
+{
+  "name": "thmanyah-podcasts-backend",
+  "version": "1.0.0",
+  "description": "Backend for Thmanyah Podcasts",
+  "private": true,
+  "keywords": [
+    "podcasts",
+    "thmanyah",
+    "itunes",
+    "backend",
+    "API",
+    "fastify"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc -p tsconfig.json",
+    "create:tables": "ts-node scripts/create-tables.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.868.0",
+    "@aws-sdk/lib-dynamodb": "^3.868.0",
+    "@fastify/cors": "^11.1.0",
+    "@fastify/sensible": "^6.0.3",
+    "@fastify/swagger": "^9.5.1",
+    "@fastify/swagger-ui": "^5.2.3",
+    "@sinclair/typebox": "^0.34.38",
+    "axios": "^1.11.0",
+    "fastify": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.2"
+  }
+}
