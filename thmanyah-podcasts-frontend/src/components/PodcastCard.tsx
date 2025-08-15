@@ -38,6 +38,9 @@ export default function PodcastCard({ podcast, index = 0 }: PodcastCardProps) {
     >
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-thmanyah-50/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-thmanyah-900/20 pointer-events-none" />
+       
+       {/* Shine effect */}
+       <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:translate-x-full transition-transform duration-700 w-100 h-100" />
       
       <div className="relative p-6">
         {/* Header */}
@@ -60,8 +63,6 @@ export default function PodcastCard({ podcast, index = 0 }: PodcastCardProps) {
               )}
             </div>
           </div>
-            {/* Shine effect */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:translate-x-full transition-transform duration-700 w-100 h-100" />
 
           {/* Content */}
           <div className="flex-1 min-w-0">

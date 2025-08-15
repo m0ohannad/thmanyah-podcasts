@@ -21,6 +21,20 @@ export class PodcastRepository {
      * Upserts a single Podcast item in an idempotent manner.
      */
     async upsertOneIdempotent(item: Podcast): Promise<void> {
+        // Filter out undefined values to avoid DynamoDB errors
+        const cleanItem = {
+            title: item.title,
+            author: item.author,
+            feedUrl: item.feedUrl || null,
+            artworkUrl: item.artworkUrl || null,
+            genres: item.genres || null,
+            itunesUrl: item.itunesUrl || null,
+            releaseDate: item.releaseDate || null,
+            firstSeenAt: item.firstSeenAt,
+            lastSeenAt: item.lastSeenAt,
+            updatedAt: item.updatedAt
+        };
+
         await ddb.send(new UpdateCommand({
             TableName: this.tableName,
             Key: { podcastId: item.podcastId },
@@ -49,16 +63,16 @@ export class PodcastRepository {
                 '#updatedAt': 'updatedAt'
             },
             ExpressionAttributeValues: {
-                ':title': item.title,
-                ':author': item.author,
-                ':feedUrl': item.feedUrl,
-                ':artworkUrl': item.artworkUrl,
-                ':genres': item.genres,
-                ':itunesUrl': item.itunesUrl,
-                ':releaseDate': item.releaseDate,
-                ':firstSeenAt': item.firstSeenAt,
-                ':lastSeenAt': item.lastSeenAt,
-                ':updatedAt': item.updatedAt
+                ':title': cleanItem.title,
+                ':author': cleanItem.author,
+                ':feedUrl': cleanItem.feedUrl,
+                ':artworkUrl': cleanItem.artworkUrl,
+                ':genres': cleanItem.genres,
+                ':itunesUrl': cleanItem.itunesUrl,
+                ':releaseDate': cleanItem.releaseDate,
+                ':firstSeenAt': cleanItem.firstSeenAt,
+                ':lastSeenAt': cleanItem.lastSeenAt,
+                ':updatedAt': cleanItem.updatedAt
             }
         }));
     }
@@ -67,8 +81,8 @@ export class PodcastRepository {
      * Upserts multiple Podcast items in an idempotent manner.
      */
     async upsertManyIdempotent(items: Podcast[]): Promise<void> {
-        for (const item of items) {
-            await this.upsertOneIdempotent(item);
-        }
+        // Process items in parallel for better performance
+        const promises = items.map(item => this.upsertOneIdempotent(item));
+        await Promise.all(promises);
     }
 }
