@@ -37,7 +37,7 @@ export default function PodcastCard({ podcast, index = 0 }: PodcastCardProps) {
       className="group relative overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-500 hover:shadow-strong hover:-translate-y-1 dark:bg-neutral-800"
     >
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-thmanyah-50/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-thmanyah-900/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-thmanyah-50/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-thmanyah-900/20 pointer-events-none" />
       
       <div className="relative p-6">
         {/* Header */}
@@ -59,9 +59,9 @@ export default function PodcastCard({ podcast, index = 0 }: PodcastCardProps) {
                 </div>
               )}
             </div>
-            {/* Shine effect */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
           </div>
+            {/* Shine effect */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:translate-x-full transition-transform duration-700 w-100 h-100" />
 
           {/* Content */}
           <div className="flex-1 min-w-0">
@@ -87,9 +87,12 @@ export default function PodcastCard({ podcast, index = 0 }: PodcastCardProps) {
               href={podcast.itunesUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 hover:bg-thmanyah-100 hover:text-thmanyah-600 dark:hover:bg-thmanyah-900/50 dark:hover:text-thmanyah-400 transition-all duration-300 hover:scale-110"
+              className="relative z-50 flex items-center justify-center w-10 h-10 rounded-xl bg-neutral-700 dark:bg-thmanyah-900/30 text-thmanyah-600 dark:text-thmanyah-400 hover:bg-thmanyah-600 hover:text-thmanyah-700 dark:hover:bg-thmanyah-800/50 dark:hover:text-thmanyah-300 transition-all duration-300 hover:scale-110 shadow-md hover:shadow-lg cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
             >
-              <ExternalLink className="h-4 w-4" />
+              <ExternalLink className="h-5 w-5" />
             </Link>
           )}
         </div>
@@ -128,7 +131,7 @@ export default function PodcastCard({ podcast, index = 0 }: PodcastCardProps) {
       </div>
 
       {/* Hover Border */}
-      <div className="absolute inset-0 rounded-2xl border-2 border-thmanyah-200 opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:border-thmanyah-600" />
+      <div className="absolute inset-0 rounded-2xl border-2 border-thmanyah-200 opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:border-thmanyah-600 pointer-events-none" />
     </motion.div>
   );
 }
