@@ -97,7 +97,7 @@ function SearchPageContent() {
             {query && (
               <>
                 <span>/</span>
-                <span className="font-medium text-neutral-900 dark:text-white">&ldquo;{query}&rdquo;</span>
+                <span className="font-medium text-neutral-900 dark:text-white">&rdquo;{query}&ldquo;</span>
               </>
             )}
           </motion.div>
