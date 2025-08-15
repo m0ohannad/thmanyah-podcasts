@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   title: "بودكاست ثمانية | اكتشف أفضل البرامج الصوتية",
   description: "منصة ثمانية للبودكاست - ابحث واكتشف أفضل البرامج الصوتية من جميع أنحاء العالم",
   keywords: ["بودكاست", "صوتيات", "ثمانية", "فنجان", "برامج صوتية", "عربي"],
-  authors: [{ name: "ثمانية" }],
-  creator: "ثمانية",
-  publisher: "ثمانية",
+  authors: [{ name: "مهند الحطامي" }],
+  creator: "مهند الحطامي",
+  publisher: "مهند الحطامي",
   robots: "index, follow",
   other: {
     'mobile-web-app-capable': 'yes',
@@ -21,7 +21,8 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-status-bar-style': 'default',
   },
   icons: {
-    icon: '/icon',
+    // icon: '/icon',
+    icon: '/favicon.ico',
     apple: '/apple-icon',
     shortcut: '/favicon.ico'
   },
