@@ -80,3 +80,19 @@ body {
   background-color: var(--primary);
   color: var(--primary-foreground);
 }
+
+/* Prevent horizontal scroll during animations */
+.fixed {
+  contain: layout;
+}
+
+/* Specific fix for navigation animations */
+[data-framer-motion] {
+  overflow: hidden;
+}
+
+/* Ensure transform animations don't cause overflow */
+* {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
