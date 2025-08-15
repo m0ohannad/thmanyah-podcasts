@@ -15,17 +15,17 @@ export const metadata: Metadata = {
   creator: "ثمانية",
   publisher: "ثمانية",
   robots: "index, follow",
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+  },
   icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon.png', type: 'image/png' },
-      { url: '/favicon.svg', type: 'image/svg+xml' }
-    ],
-    apple: [
-      { url: '/favicon.png' }
-    ],
+    icon: '/icon',
+    apple: '/apple-icon',
     shortcut: '/favicon.ico'
   },
+  manifest: '/manifest.json',
   openGraph: {
     type: "website",
     locale: "ar_SA",

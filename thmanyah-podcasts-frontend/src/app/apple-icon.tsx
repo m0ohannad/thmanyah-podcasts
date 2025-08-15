@@ -14,7 +14,7 @@ export default function AppleIcon() {
       <div
         style={{
           fontSize: 120,
-          background: 'linear-gradient(135deg, #8B5CF6 0%, #A855F7 25%, #C084FC 50%, #E879F9 75%, #F0ABFC 100%)',
+          background: 'linear-gradient(135deg, #f19b8f 0%, #e87b6c 25%, #db614f 50%, #c94e3a 75%, #a13829 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -22,7 +22,7 @@ export default function AppleIcon() {
           justifyContent: 'center',
           borderRadius: '20px',
           position: 'relative',
-          boxShadow: '0 10px 25px rgba(139, 92, 246, 0.3)',
+          boxShadow: '0 10px 25px rgba(241, 155, 143, 0.3)',
         }}
       >
         {/* Main Icon */}
