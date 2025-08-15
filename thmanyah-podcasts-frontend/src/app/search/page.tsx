@@ -141,7 +141,7 @@ function SearchPageContent() {
                 {results.length > 0 && (
                   <div className="flex items-center gap-3">
                     {/* View Mode Toggle */}
-                    <div className="flex items-center rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 p-1">
+                    <div className="hidden md:flex items-center rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 p-1">
                       <button
                         onClick={() => setViewMode('grid')}
                         className={`p-2 rounded-md transition-all duration-200 ${
@@ -165,16 +165,16 @@ function SearchPageContent() {
                     </div>
 
                     {/* Sort Button */}
-                    <button className="flex items-center gap-2 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-3 py-2 text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200">
+                    {/* <button className="flex items-center gap-2 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-3 py-2 text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200">
                       <SortAsc className="w-4 h-4" />
                       ترتيب
-                    </button>
+                    </button> */}
 
                     {/* Filter Button */}
-                    <button className="flex items-center gap-2 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-3 py-2 text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200">
+                    {/* <button className="flex items-center gap-2 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-3 py-2 text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200">
                       <Filter className="w-4 h-4" />
                       تصفية
-                    </button>
+                    </button> */}
                   </div>
                 )}
               </motion.div>
