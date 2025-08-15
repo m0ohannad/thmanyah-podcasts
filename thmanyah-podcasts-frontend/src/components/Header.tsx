@@ -1,6 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Search, Radio } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navigation from './Navigation';
@@ -10,6 +12,22 @@ interface HeaderProps {
 }
 
 export default function Header({ onSearchFocus }: HeaderProps) {
+  const [searchValue, setSearchValue] = useState('');
+  const router = useRouter();
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchValue.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchValue.trim())}`);
+      setSearchValue('');
+    }
+  };
+
+  const handleSearchFocus = () => {
+    if (onSearchFocus) {
+      onSearchFocus();
+    }
+  };
   return (
     <motion.header 
       initial={{ y: -20, opacity: 0 }}
@@ -61,14 +79,19 @@ export default function Header({ onSearchFocus }: HeaderProps) {
 
           {/* Right side actions */}
           <div className="flex items-center gap-3">
-            {/* Search Button */}
-            <button
-              onClick={onSearchFocus}
-              className="group flex items-center space-x-2 rounded-full border border-neutral-300 bg-neutral-50/50 px-4 py-2 text-sm text-neutral-600 backdrop-blur-sm transition-all duration-300 hover:border-thmanyah-300 hover:bg-thmanyah-50/50 hover:text-thmanyah-700 dark:border-neutral-700 dark:bg-neutral-800/50 dark:text-neutral-400 dark:hover:border-thmanyah-600 dark:hover:bg-thmanyah-900/20 dark:hover:text-thmanyah-300"
-            >
-              <Search className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-              <span className="hidden sm:inline">البحث في البودكاست...</span>
-            </button>
+            {/* Search Input - Always Visible */}
+            <form onSubmit={handleSearchSubmit} className="relative">
+              <input
+                type="text"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                onFocus={handleSearchFocus}
+                placeholder="البحث في البودكاست..."
+                className="w-48 sm:w-56 rounded-full border border-neutral-300 bg-neutral-50/50 px-4 py-2 pr-10 pl-4 text-sm text-neutral-900 placeholder-neutral-500 backdrop-blur-sm transition-all duration-300 focus:border-thmanyah-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-thmanyah-500/20 hover:border-neutral-400 hover:bg-white dark:border-neutral-700 dark:bg-neutral-800/50 dark:text-white dark:placeholder-neutral-400 dark:focus:border-thmanyah-400 dark:focus:bg-neutral-800"
+                dir="rtl"
+              />
+              <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400 transition-colors group-hover:text-thmanyah-500" />
+            </form>
 
             {/* Mobile Navigation */}
             <Navigation />

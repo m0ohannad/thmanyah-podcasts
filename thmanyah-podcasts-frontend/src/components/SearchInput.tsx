@@ -45,90 +45,121 @@ export default function SearchInput({
   };
 
   return (
-    <motion.form
-      onSubmit={handleSubmit}
+    <motion.div 
       className={`relative w-full max-w-2xl mx-auto ${className}`}
       initial={{ scale: 0.95, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      <div className={`relative flex items-center transition-all duration-300 ${
-        isFocused 
-          ? 'ring-2 ring-thmanyah-400/50 shadow-lg shadow-thmanyah-100' 
-          : 'shadow-soft hover:shadow-medium'
-      }`}>
-        {/* Search Icon */}
-        <div className="absolute left-4 flex items-center">
-          <AnimatePresence mode="wait">
-            {isLoading ? (
-              <motion.div
-                key="loading"
-                initial={{ scale: 0, rotate: 0 }}
-                animate={{ scale: 1, rotate: 360 }}
-                exit={{ scale: 0, rotate: -360 }}
-                transition={{ duration: 0.3 }}
+      <form onSubmit={handleSubmit} className="relative">
+        {/* Main Input Container */}
+        <div className="relative">
+          {/* Input Field */}
+          <input
+            ref={inputRef}
+            type="text"
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            placeholder={placeholder}
+            disabled={isLoading}
+            className={`
+              w-full h-16 px-6 pr-16 text-lg font-medium text-neutral-900 placeholder-neutral-500 
+              bg-white border-2 rounded-2xl shadow-lg transition-all duration-300 outline-none
+              ${value.trim() ? 'pl-32' : 'pl-6'}
+              ${isFocused 
+                ? 'border-thmanyah-500 shadow-lg ring-2 ring-thmanyah-500/5' 
+                : 'border-neutral-200 hover:border-neutral-300 hover:shadow-xl'
+              }
+              ${isLoading ? 'cursor-not-allowed opacity-60' : 'cursor-text'}
+              dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:placeholder-neutral-400
+              dark:focus:border-thmanyah-400 dark:focus:ring-thmanyah-400/5
+            `}
+            dir="rtl"
+          />
+
+          {/* Search Icon - Right Side */}
+          <motion.div
+            className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"
+            animate={{ 
+              scale: isFocused ? 1.1 : 1,
+              rotate: isFocused ? 5 : 0
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className={`
+              p-2 rounded-xl transition-all duration-300
+              ${isFocused 
+                ? 'bg-thmanyah-500/10 text-thmanyah-600' 
+                : 'text-neutral-500'
+              }
+            `}>
+              {isLoading ? (
+                <Loader2 className="h-6 w-6 animate-spin text-thmanyah-500" />
+              ) : (
+                <Search className="h-6 w-6" />
+              )}
+            </div>
+          </motion.div>
+
+          {/* Clear Button - Left Side Inner */}
+          <AnimatePresence>
+            {value && !isLoading && (
+              <motion.button
+                type="button"
+                onClick={handleClear}
+                className="absolute left-26 top-1/2 -translate-y-1/2 p-2 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-500 hover:text-neutral-700 transition-all duration-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-200 z-10"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Loader2 className="h-5 w-5 text-thmanyah-500 animate-spin" />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="search"
-                initial={{ scale: 0, rotate: -360 }}
-                animate={{ scale: 1, rotate: 0 }}
-                exit={{ scale: 0, rotate: 360 }}
+                <X className="h-4 w-4" />
+              </motion.button>
+            )}
+          </AnimatePresence>
+
+          {/* Submit Button - Left Side Outer */}
+          <AnimatePresence>
+            {value.trim() && (
+              <motion.button
+                type="submit"
+                disabled={isLoading}
+                className="absolute left-2 top-1/2 -translate-y-1/2 px-5 py-2.5 bg-gradient-to-r from-thmanyah-500 to-thmanyah-600 hover:from-thmanyah-600 hover:to-thmanyah-700 text-white text-sm font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-thmanyah-500/50 disabled:opacity-50 disabled:cursor-not-allowed z-10"
+                initial={{ scale: 0, opacity: 0, x: 10 }}
+                animate={{ scale: 1, opacity: 1, x: 0 }}
+                exit={{ scale: 0, opacity: 0, x: 10 }}
                 transition={{ duration: 0.3 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Search className="h-5 w-5 text-neutral-500" />
-              </motion.div>
+                <span className="flex items-center gap-1.5">
+                  {isLoading ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Search className="h-4 w-4" />
+                  )}
+                  بحث
+                </span>
+              </motion.button>
             )}
           </AnimatePresence>
         </div>
 
-        {/* Input Field */}
-        <input
-          ref={inputRef}
-          type="text"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          placeholder={placeholder}
-          disabled={isLoading}
-          className="w-full rounded-2xl border-0 bg-white py-4 pl-12 pr-12 text-right text-lg font-medium text-neutral-900 placeholder-neutral-500 outline-none transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-70 dark:bg-neutral-800 dark:text-white dark:placeholder-neutral-400"
-          dir="rtl"
+        {/* Focus Ring Animation */}
+        <motion.div
+          className="absolute inset-0 rounded-2xl border-2 border-thmanyah-500 pointer-events-none -z-10"
+          initial={{ opacity: 0, scale: 1.01 }}
+          animate={{ 
+            opacity: isFocused ? 0.15 : 0,
+            scale: isFocused ? 1 : 1.01
+          }}
+          transition={{ duration: 0.3 }}
         />
-
-        {/* Clear Button */}
-        <AnimatePresence>
-          {value && !isLoading && (
-            <motion.button
-              type="button"
-              onClick={handleClear}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="absolute right-4 flex items-center justify-center rounded-full p-1 text-neutral-400 transition-colors duration-200 hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-700 dark:hover:text-neutral-300"
-            >
-              <X className="h-4 w-4" />
-            </motion.button>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Search Button */}
-      <motion.button
-        type="submit"
-        disabled={!value.trim() || isLoading}
-        className="absolute left-2 top-1/2 -translate-y-1/2 rounded-xl bg-thmanyah-500 px-6 py-2 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-thmanyah-600 hover:shadow-xl hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100 disabled:hover:bg-thmanyah-500"
-        whileTap={{ scale: 0.95 }}
-      >
-        {isLoading ? (
-          <Loader2 className="h-4 w-4 animate-spin" />
-        ) : (
-          'بحث'
-        )}
-      </motion.button>
-    </motion.form>
+      </form>
+    </motion.div>
   );
 }
