@@ -57,6 +57,8 @@ export default function SearchInput({
           {/* Input Field */}
           <input
             ref={inputRef}
+            id="search-input"
+            name="search"
             type="text"
             value={value}
             onChange={(e) => onChange(e.target.value)}

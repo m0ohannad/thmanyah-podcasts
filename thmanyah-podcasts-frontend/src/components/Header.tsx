@@ -82,6 +82,8 @@ export default function Header({ onSearchFocus }: HeaderProps) {
             {/* Search Input - Always Visible */}
             <form onSubmit={handleSearchSubmit} className="relative">
               <input
+                id="header-search-input"
+                name="headerSearch"
                 type="text"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
