@@ -1,0 +1,27 @@
+{
+  "name": "بودكاست ثمانية",
+  "short_name": "ثمانية",
+  "description": "منصة ثمانية للبودكاست - ابحث واكتشف أفضل البرامج الصوتية من جميع أنحاء العالم",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["entertainment", "music", "podcast"],
+  "lang": "ar",
+  "dir": "rtl"
+}
