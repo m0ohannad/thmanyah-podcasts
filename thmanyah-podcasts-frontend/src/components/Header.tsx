@@ -29,7 +29,7 @@ export default function Header({ onSearchFocus }: HeaderProps) {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-neutral-900 dark:text-white transition-colors duration-300 group-hover:text-thmanyah-600">
-                ثمانية بودكاست
+                بودكاست ثمانية
               </h1>
               <p className="text-xs text-neutral-600 dark:text-neutral-400">
                 اكتشف أفضل البودكاست

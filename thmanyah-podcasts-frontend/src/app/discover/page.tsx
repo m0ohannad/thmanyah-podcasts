@@ -10,14 +10,14 @@ export default function DiscoverPage() {
   const router = useRouter();
 
   const categories = [
-    { name: 'التقنية والبرمجة', search: 'تقنية برمجة', icon: '💻', color: 'bg-blue-100 text-blue-600' },
-    { name: 'الأعمال والريادة', search: 'أعمال ريادة', icon: '💼', color: 'bg-green-100 text-green-600' },
-    { name: 'التطوير الشخصي', search: 'تطوير الذات', icon: '🌱', color: 'bg-purple-100 text-purple-600' },
-    { name: 'الثقافة والأدب', search: 'ثقافة أدب', icon: '📚', color: 'bg-orange-100 text-orange-600' },
-    { name: 'العلوم والفلك', search: 'علوم فلك', icon: '🔬', color: 'bg-indigo-100 text-indigo-600' },
-    { name: 'الرياضة', search: 'رياضة كرة', icon: '⚽', color: 'bg-red-100 text-red-600' },
-    { name: 'الصحة واللياقة', search: 'صحة لياقة', icon: '🏋️', color: 'bg-emerald-100 text-emerald-600' },
-    { name: 'الطبخ والطعام', search: 'طبخ طعام', icon: '🍳', color: 'bg-yellow-100 text-yellow-600' },
+    { name: 'التقنية والبرمجة', search: 'تقنية', icon: '💻', color: 'bg-blue-100 text-blue-600' },
+    { name: 'الأعمال والريادة', search: 'ريادة', icon: '💼', color: 'bg-green-100 text-green-600' },
+    { name: 'التطوير الشخصي', search: 'الذات', icon: '🌱', color: 'bg-purple-100 text-purple-600' },
+    { name: 'الثقافة والأدب', search: 'ثقافة', icon: '📚', color: 'bg-orange-100 text-orange-600' },
+    { name: 'العلوم والفلك', search: 'فلك', icon: '🔬', color: 'bg-indigo-100 text-indigo-600' },
+    { name: 'الرياضة', search: 'رياضة', icon: '⚽', color: 'bg-red-100 text-red-600' },
+    { name: 'الصحة واللياقة', search: 'صحة', icon: '🏋️', color: 'bg-emerald-100 text-emerald-600' },
+    { name: 'الطبخ والطعام', search: 'مطبخ', icon: '🍳', color: 'bg-yellow-100 text-yellow-600' },
   ];
 
   const popularPodcasts = [

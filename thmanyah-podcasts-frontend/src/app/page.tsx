@@ -82,7 +82,7 @@ export default function Home() {
               className="text-4xl sm:text-6xl lg:text-7xl font-bold text-neutral-900 dark:text-white mb-6"
             >
               <span className="block">اكتشف عالم</span>
-              <span className="block bg-gradient-to-r from-thmanyah-500 to-thmanyah-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-thmanyah-500 to-thmanyah-600 bg-clip-text">
                 البودكاست
               </span>
             </motion.h1>
@@ -233,7 +233,7 @@ export default function Home() {
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-thmanyah-500 to-thmanyah-600 flex items-center justify-center">
                 <Radio className="w-5 h-5 text-white" />
               </div>
-              <h3 className="text-xl font-bold">ثمانية بودكاست</h3>
+              <h3 className="text-xl font-bold">بودكاست ثمانية</h3>
             </div>
             <p className="text-neutral-400 mb-4">
               منصة شاملة لاكتشاف أفضل البودكاست من جميع أنحاء العالم
