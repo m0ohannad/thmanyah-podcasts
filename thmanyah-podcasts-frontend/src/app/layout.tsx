@@ -48,7 +48,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className={`${ibmPlexSansArabic.variable} ${ibmPlexSans.variable}`}>
+    <html 
+      lang="ar" 
+      dir="rtl" 
+      className={`${ibmPlexSansArabic.variable} ${ibmPlexSans.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#8B5CF6" />

@@ -88,7 +88,7 @@ export default function PodcastCard({ podcast, index = 0 }: PodcastCardProps) {
               href={podcast.itunesUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative z-50 flex items-center justify-center w-10 h-10 rounded-xl bg-neutral-700 dark:bg-thmanyah-900/30 text-thmanyah-600 dark:text-thmanyah-400 hover:bg-thmanyah-600 hover:text-thmanyah-700 dark:hover:bg-thmanyah-800/50 dark:hover:text-thmanyah-300 transition-all duration-300 hover:scale-110 shadow-md hover:shadow-lg cursor-pointer"
+              className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-neutral-700 dark:bg-thmanyah-900/30 text-thmanyah-600 dark:text-thmanyah-400 hover:bg-thmanyah-600 hover:text-thmanyah-700 dark:hover:bg-thmanyah-800/50 dark:hover:text-thmanyah-300 transition-all duration-300 hover:scale-110 shadow-md hover:shadow-lg cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();
               }}
