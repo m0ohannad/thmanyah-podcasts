@@ -53,6 +53,7 @@ export default function PodcastCard({ podcast, index = 0 }: PodcastCardProps) {
                   src={podcast.artworkUrl}
                   alt={podcast.title}
                   fill
+                  priority={index < 3} // Add priority for first 3 podcast cards
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="80px"
                 />
