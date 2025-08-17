@@ -1,0 +1,47 @@
+{
+  "name": "thmanyah-podcasts",
+  "version": "1.0.0",
+  "description": "منصة ثمانية للبودكاست - ابحث واكتشف أفضل البرامج الصوتية",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd thmanyah-podcasts-backend && npm run dev",
+    "dev:frontend": "cd thmanyah-podcasts-frontend && npm run dev",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "cd thmanyah-podcasts-backend && npm run build",
+    "build:frontend": "cd thmanyah-podcasts-frontend && npm run build",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "cd thmanyah-podcasts-backend && npm start",
+    "start:frontend": "cd thmanyah-podcasts-frontend && npm start",
+    "install:all": "npm install && cd thmanyah-podcasts-backend && npm install && cd ../thmanyah-podcasts-frontend && npm install",
+    "clean": "rm -rf node_modules thmanyah-podcasts-backend/node_modules thmanyah-podcasts-frontend/node_modules thmanyah-podcasts-backend/dist thmanyah-podcasts-frontend/.next",
+    "setup": "npm run install:all && npm run setup:backend",
+    "setup:backend": "cd thmanyah-podcasts-backend && npm run create:tables"
+  },
+  "keywords": [
+    "podcast",
+    "thmanyah",
+    "arabic",
+    "search",
+    "nextjs",
+    "fastify",
+    "typescript"
+  ],
+  "author": "مهند الحطامي",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m0ohannad/thmanyah-podcasts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/m0ohannad/thmanyah-podcasts/issues"
+  },
+  "homepage": "https://github.com/m0ohannad/thmanyah-podcasts#readme"
+}
