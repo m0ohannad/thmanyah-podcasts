@@ -5,7 +5,7 @@ export const config = {
   port: Number(process.env.PORT ?? 3001),
   env: process.env.NODE_ENV ?? 'development',
   awsRegion: process.env.AWS_REGION ?? 'local',
-  dynamoEndpoint: process.env.DYNAMODB_ENDPOINT ?? 'http://localhost:8000',
+  dynamoEndpoint: process.env.DYNAMODB_ENDPOINT,
   tablePodcasts: process.env.TABLE_PODCASTS ?? 'Podcasts',
   aws: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID ?? 'LOCAL',
